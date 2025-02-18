@@ -26,6 +26,7 @@
 	if(human_owner.stat >= DEAD) //do shit the natural way i guess
 		return 
 	to_chat(human_owner, span_danger("I feel horrible... REALLY horrible..."))
+	human_owner.playsound_local(get_turf(owner.current), 'sound/music/horror.ogg', 80, FALSE, pressure_affected = FALSE)
 	human_owner.mob_timers["puke"] = world.time
 	human_owner.vomit(1, blood = TRUE, stun = FALSE)
 	zombie_infection_timer = addtimer(CALLBACK(src, PROC_REF(wake_zombie)), zombie_infection_time, TIMER_STOPPABLE)
@@ -61,6 +62,7 @@
 	if(human_owner.stat >= DEAD) //forget it
 		return 
 	to_chat(human_owner, span_danger("I feel horrible... REALLY horrible..."))
+	human_owner.playsound_local(get_turf(owner.current), 'sound/music/horror.ogg', 80, FALSE, pressure_affected = FALSE)
 	human_owner.mob_timers["puke"] = world.time
 	human_owner.vomit(1, blood = TRUE, stun = FALSE)
 	werewolf_infection_timer = addtimer(CALLBACK(src, PROC_REF(wake_werewolf)), werewolf_infection_time, TIMER_STOPPABLE)
